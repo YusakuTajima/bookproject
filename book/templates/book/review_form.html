@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}レビュー投稿{% endblock %}
+{% block h1 %}レビュー投稿{% endblock %}
+
+{% block content %}
+    <form method="POST" class="p-4 m-4 bg-light border border-success rounded form-group">
+    {% csrf_token %}
+        <label>対象書籍</label>
+            <input class="form-control" value="{{ book.title }}" readonly><!-- 「readonly」とすることで編集不可となる -->>
+        <label>タイトル</label>
+            <input class="form-control" name="title">
+        <label>本文</label>
+            <textarea class="form-control" name="text" rows="3"></textarea>
+        <label>星の数</label>
+            <select class="form-control" name="rate">
+                <option value="0">０（最低）</option>
+                <option value="1">１</option>
+                <option value="2">２</option>
+                <option value="3" selected>３（普通）</option><!-- 「selected」でデフォルトの値を設定。 -->>
+                <option value="4">４</option>
+                <option value="5">５（最高）</option>
+            </select>
+        <input type="hidden" name="book" value="{{ book.id }}"><!-- Djangoに保存するBookオブジェクトの番号を指定。（htmlファイル上では表示させないのでtypeはhidden。） -->
+        <button type="submit" class="btn btn-success mt-4">投稿する</button>
+    </form>
+{% endblock %}

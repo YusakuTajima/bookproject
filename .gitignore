@@ -1,0 +1,20 @@
+# gitにプッシュする際に除外するものを列挙する。
+# Pythonのキャッシュが自動生成されているので除外
+__pychache__
+
+# 環境変数は除外
+.env
+
+# 仮想環境は除外
+/venv/
+
+# mediaディレクトリに「 .gitkeep 」というファイルを作成し、それ以外は除外
+/media/*
+!/media/.gitkeep
+
+# static ディレクトリに「 .gitkeep 」ファイルを作成し、それ以外は除外
+/static/*
+!/static/.gitkeep
+
+# DBは除外
+db.sqlite3

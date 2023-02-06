@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}書籍作成{% endblock %}
+
+{% block content %}
+    <form method='POST' enctype="multipart/form-data" class="p-4 m-4 bg-light border border-success rounded form-group">
+    {% csrf_token %}
+        {{form.as_p}}
+        <input type='submit' value='作成する'>
+    </form>
+{% endblock content %}
+
+
+{% comment %}
+※ 「 　extends〜 」のタグから記述しないとエラーとなる
+※　「 form.as_p 」でpタグを作成し、「submit」でボタンが作られる
+※　 HTMLコーダーさん（フロントエンド実装者）側では、inputタグよりもbuttonタグの方が装飾しやすいらしい。
+　　　→　inputタグでは閉じタグを書かなくてもOK。buttonタグの場合、formの閉じタグが必要！！
+{% endcomment %}
