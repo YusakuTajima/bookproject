@@ -11,13 +11,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# default key  "django-insecure-s51o@p#2+#12e&0bs=@fb&h)cobd8(fdlk8o%(a35)!0yw7^%f"
+# SECRET_KEY = "django-insecure-s51o@p#2+#12e&0bs=@fb&h)cobd8(fdlk8o%(a35)!0yw7^%f"  # このプロジェクトの本来のキー（デフォルト）
 SECRET_KEY = os.getenv('SELECT_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [] #　ここにWebサーバーのドメインを指定
 
 
 # Application definition
@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "book.apps.BookConfig", # ここでアプリを認識させる
     "accounts.apps.AccountsConfig",
-    "django_extensions", # ER図作成のためのもの。出力しない場合はコメントアウト。
+    "django_extensions", # ER図作成のためのもの。認識させない場合はコメントアウト。
 ]
 
 MIDDLEWARE = [

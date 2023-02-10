@@ -37,7 +37,7 @@ class CreateBookView(LoginRequiredMixin,CreateView):
     template_name = 'book/book_create.html'
     model = Book
     fields = ('title','text','category','thumbnail')
-    success_url = reverse_lazy('list-book') # 遷移先のURLをここで指定。
+    success_url = reverse_lazy('list-book') # 遷移先のURLをここで指定。< int:pk >の指定がない場合、このような書き方でOK。
 
     def form_valid(self,form): # formにユーザー情報を追加
         form.instance.user = self.request.user
